@@ -16,4 +16,8 @@ git add docs/
 git commit -m "Deploy: update docs build"
 git push
 
+# Clean up dist/ so it's not accidentally committed later
+echo "Cleaning up dist/..."
+rm -rf dist
+
 echo "Done."
