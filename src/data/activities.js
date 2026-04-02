@@ -1,0 +1,141 @@
+export const ACTIVITIES = [
+  // ── EASY ──────────────────────────────────────────────────────────────────
+  {
+    id: 'tally-time',
+    title: 'Tally Time!',
+    emoji: '🐾',
+    difficulty: 'easy',
+    description: 'Count the animals and complete the tally chart.',
+    type: 'tally',
+    skill: 'Collecting Data',
+    learningOutcome: 'Counting and recording observations into a table is the very first step in any data investigation. Without accurate collection, everything else falls apart.',
+  },
+  {
+    id: 'sort-squad',
+    title: 'Sort Squad',
+    emoji: '🔢',
+    difficulty: 'easy',
+    description: 'Drag the data values into the correct order from smallest to largest.',
+    type: 'sort',
+    skill: 'Ordering Data',
+    learningOutcome: 'Sorting data immediately reveals the lowest value, the highest value, and the spread in between — things that are impossible to see in a jumbled list.',
+  },
+  {
+    id: 'chart-reader',
+    title: 'Chart Reader',
+    emoji: '📊',
+    difficulty: 'easy',
+    description: 'Read a bar chart about a class survey and answer the questions by clicking the bars.',
+    type: 'chart-reader',
+    skill: 'Reading Charts',
+    learningOutcome: 'Charts turn raw numbers into a picture. Being able to read them accurately — and pull out specific facts — is a skill used every day in news, science, sport, and business.',
+  },
+
+  {
+    id: 'data-type-sorter',
+    title: 'What Kind of Data?',
+    emoji: '🏷️',
+    difficulty: 'easy',
+    description: 'Sort numbers, categories, and yes/no values into the right buckets.',
+    type: 'data-type-sorter',
+    skill: 'Types of Data',
+    learningOutcome: 'Not all data is the same. Numbers can be measured and calculated. Categories are labels that describe things. Yes/No values have exactly two options. Knowing the difference changes how you analyse and display data.',
+  },
+  {
+    id: 'range-finder',
+    title: 'Range Finder',
+    emoji: '📏',
+    difficulty: 'easy',
+    description: 'Find the highest and lowest values in a dataset, then calculate the range.',
+    type: 'range-finder',
+    skill: 'Measuring Spread',
+    learningOutcome: 'The range shows how spread out data is. Two datasets can have the same average but completely different ranges — one tightly bunched, one wildly spread. Range is the simplest way to measure that difference.',
+  },
+  {
+    id: 'pictograph-puzzle',
+    title: 'Pictograph Puzzle',
+    emoji: '🍦',
+    difficulty: 'easy',
+    description: 'Read a pictograph and answer questions by clicking on the rows — no maths required!',
+    type: 'pictograph-puzzle',
+    skill: 'Data as Pictures',
+    learningOutcome: 'Numbers don\'t have to be written as digits — they can be shown as pictures or symbols. A pictograph makes it instant to see which group is biggest just by glancing at the row lengths, no calculating needed.',
+  },
+
+  // ── MEDIUM ─────────────────────────────────────────────────────────────────
+  {
+    id: 'mean-machine',
+    title: 'Mean Machine',
+    emoji: '➗',
+    difficulty: 'medium',
+    description: 'Calculate the mean (average) for a set of data. Show your working step by step!',
+    type: 'mean-machine',
+    skill: 'Calculating Averages',
+    learningOutcome: 'The mean lets you summarise a whole dataset with just one number. Instead of listing every value, you can say "on average, students read 5 books" — a much more useful statement.',
+  },
+  {
+    id: 'outlier-detective',
+    title: 'Outlier Detective',
+    emoji: '🔍',
+    difficulty: 'medium',
+    description: 'Something doesn\'t belong! Find the value that is way outside the normal range.',
+    type: 'outlier',
+    skill: 'Spotting Anomalies',
+    learningOutcome: 'An outlier is a value so different from the rest that it stands out. Spotting them is critical — they often reveal data entry mistakes, equipment errors, or genuinely unusual events worth investigating.',
+  },
+  {
+    id: 'data-gaps',
+    title: 'Spot the Error',
+    emoji: '🚨',
+    difficulty: 'medium',
+    description: 'A sports day results table has mistakes hiding in it. Can you find what\'s wrong and explain why?',
+    type: 'data-gaps',
+    skill: 'Finding Contradictions',
+    learningOutcome: 'Data often contains values that contradict each other — a "winner" with a slower time, or measurements in different units in the same column. Learning to spot these contradictions stops wrong conclusions being drawn.',
+  },
+
+  // ── HARD ───────────────────────────────────────────────────────────────────
+  {
+    id: 'trend-tracker',
+    title: 'Trend Tracker',
+    emoji: '📈',
+    difficulty: 'hard',
+    description: 'Study the line graph, identify the trend, and place your prediction for the next data point.',
+    type: 'trend-tracker',
+    skill: 'Predicting from Trends',
+    learningOutcome: 'A trend is the overall direction data moves over time. Recognising trends allows you to make evidence-based predictions — the foundation of forecasting in weather, finance, sport, and science.',
+  },
+  {
+    id: 'survey-showdown',
+    title: 'Messy Records',
+    emoji: '🧹',
+    difficulty: 'hard',
+    description: 'Real survey data always has mistakes! Find the typos, wrong values, and inconsistencies lurking in the records.',
+    type: 'survey-showdown',
+    skill: 'Data Quality',
+    learningOutcome: 'Real-world data is almost never clean. Learning to identify the types of errors — typos, wrong capitalisation, out-of-range values — is the first step in "cleaning" data before you can trust it.',
+  },
+  {
+    id: 'chart-chooser',
+    title: 'Chart Chooser',
+    emoji: '🗂️',
+    difficulty: 'hard',
+    description: 'Drag each chart type onto the situation it fits best — and find out why the wrong chart misleads people.',
+    type: 'chart-chooser',
+    skill: 'Choosing the Right Chart',
+    learningOutcome: 'Picking the wrong chart type doesn\'t just look bad — it can completely mislead the reader. Understanding which chart suits which data is one of the most important skills in communicating with data.',
+  },
+]
+
+export const DIFFICULTY_LABELS = {
+  easy: 'Easy',
+  medium: 'Medium',
+  hard: 'Hard',
+}
+
+// How many activities of the PREVIOUS tier must be completed to unlock each tier
+export const UNLOCK_REQUIREMENTS = {
+  easy:   { requiredDifficulty: null,   requiredCount: 0 },
+  medium: { requiredDifficulty: 'easy', requiredCount: 3 },
+  hard:   { requiredDifficulty: 'medium', requiredCount: 2 },
+}
