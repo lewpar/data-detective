@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function Header({ completed, total, onSettingsClick, onLogoClick }) {
-  const pct = total > 0 ? Math.round((completed / total) * 100) : 0
+export default function Header({ progressCurrent, progressTotal, progressLabel, onSettingsClick, onLogoClick }) {
+  const pct = progressTotal > 0 ? Math.round((progressCurrent / progressTotal) * 100) : 0
 
   return (
     <header className="header">
@@ -12,7 +12,7 @@ export default function Header({ completed, total, onSettingsClick, onLogoClick 
 
       <div className="header-progress">
         <span className="progress-label">
-          {completed}/{total} solved
+          {progressLabel}
         </span>
         <div className="progress-track" title={`${pct}% complete`}>
           <div className="progress-fill" style={{ width: `${pct}%` }} />

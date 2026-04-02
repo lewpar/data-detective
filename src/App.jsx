@@ -5,16 +5,34 @@ import ActivityList from './components/ActivityList'
 import ActivityRunner from './components/ActivityRunner'
 import SettingsModal from './components/SettingsModal'
 import Header from './components/Header'
-import { ACTIVITIES } from './data/activities'
+import { ACTIVITIES, UNLOCK_REQUIREMENTS, DIFFICULTY_LABELS } from './data/activities'
+
+function getUnlockProgress(completedActivities) {
+  for (const diff of ['medium', 'hard']) {
+    const req = UNLOCK_REQUIREMENTS[diff]
+    const done = ACTIVITIES.filter(
+      a => a.difficulty === req.requiredDifficulty && completedActivities[a.id]
+    ).length
+    if (done < req.requiredCount) {
+      return {
+        current: done,
+        total: req.requiredCount,
+        label: `${done}/${req.requiredCount} ${DIFFICULTY_LABELS[req.requiredDifficulty]} · unlocks ${DIFFICULTY_LABELS[diff]}`,
+      }
+    }
+  }
+  const total = ACTIVITIES.length
+  const current = Object.keys(completedActivities).length
+  return { current, total, label: `${current}/${total} solved` }
+}
 
 export default function App() {
   const { session, completeActivity, resetSession, markStarted } = useSession()
   const [activeId, setActiveId] = useState(null)
   const [showSettings, setShowSettings] = useState(false)
 
-  const totalActivities = ACTIVITIES.length
-  const completedCount = Object.keys(session.completedActivities).length
   const activeActivity = activeId ? ACTIVITIES.find(a => a.id === activeId) : null
+  const progress = getUnlockProgress(session.completedActivities)
 
   if (!session.started) {
     return <LandingPage onStart={markStarted} />
@@ -23,8 +41,9 @@ export default function App() {
   return (
     <div className="app">
       <Header
-        completed={completedCount}
-        total={totalActivities}
+        progressCurrent={progress.current}
+        progressTotal={progress.total}
+        progressLabel={progress.label}
         onSettingsClick={() => setShowSettings(true)}
         onLogoClick={() => setActiveId(null)}
       />
