@@ -1,3 +1,19 @@
+/* ─── Animations ─────────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
 /* ─── Reset & Base ───────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -38,6 +54,7 @@ input  { font-family: inherit; }
   align-items: center;
   justify-content: center;
   padding: 32px 16px;
+  animation: fadeIn 0.4s ease both;
   background:
     radial-gradient(ellipse at 20% 30%, #1a1060 0%, transparent 55%),
     radial-gradient(ellipse at 80% 70%, #0a2a3a 0%, transparent 55%),
@@ -52,6 +69,7 @@ input  { font-family: inherit; }
   align-items: center;
   gap: 28px;
   text-align: center;
+  animation: fadeInUp 0.5s ease 0.1s both;
 }
 
 .landing-badge {
@@ -191,6 +209,10 @@ input  { font-family: inherit; }
   width: 100%;
   margin: 0 auto;
   padding: 24px 16px 48px;
+}
+
+.main-content > * {
+  animation: fadeInUp 0.3s ease both;
 }
 
 /* ─── Header ─────────────────────────────────────────────────────── */
@@ -812,6 +834,7 @@ input  { font-family: inherit; }
 .result-banner {
   border-radius: var(--radius);
   padding: 20px 24px;
+  animation: fadeInUp 0.35s ease both;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -856,6 +879,7 @@ input  { font-family: inherit; }
   justify-content: center;
   z-index: 200;
   backdrop-filter: blur(4px);
+  animation: fadeIn 0.2s ease both;
 }
 .modal {
   background: var(--surface);
@@ -864,6 +888,7 @@ input  { font-family: inherit; }
   padding: 28px 28px 24px;
   max-width: 400px;
   width: 90%;
+  animation: scaleIn 0.25s ease both;
 }
 .modal-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 14px; }
 .modal-body { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; }
