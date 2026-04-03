@@ -5,8 +5,9 @@ set -euo pipefail
 echo "Building..."
 npm run build
 
-# Clear and repopulate docs/
+# Clear and repopulate docs/, preserving CNAME
 echo "Copying build output to docs/..."
+cp docs/CNAME dist/CNAME 2>/dev/null || true
 rm -rf docs
 cp -r dist docs
 
